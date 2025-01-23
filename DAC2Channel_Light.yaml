@@ -1,0 +1,82 @@
+substitutions:
+  devicename: hamoduledac2chlight
+  friendly_name: HA Module DAC 2Ch
+  device_description: DAC 2Ch Light
+
+esphome:
+  name: $devicename
+  comment: ${device_description}
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "WIFINAME"
+  password: "WIFI_PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${friendly_name}"
+    password: "AP_PASSWORD"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  - platform: esphome
+    password: "OTA_PASSWORD"
+
+
+sensor:
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "${friendly_name} Uptime"
+    update_interval: 60s
+
+  #measures the voltage at the chip, not the VCC pin of the board
+  - platform: adc
+    pin: VCC
+    name: "${friendly_name} VCC Voltage"
+    update_interval: 60s
+
+# Set a global I²C connection
+i2c:
+  id: bus_a
+  sda: GPIO4
+  scl: GPIO5
+  scan: true
+
+gp8403:
+  # Set the component with address: 0x5F
+  - id: my_gp8403_1
+    i2c_id: bus_a
+    voltage: 10V
+    address: 0x5f
+
+# Individual outputs
+output:
+  - platform: gp8403
+    id: my_gp8403_2_output_1
+    gp8403_id: my_gp8403_1
+    channel: 0
+  - platform: gp8403
+    id: my_gp8403_2_output_2
+    gp8403_id: my_gp8403_1
+    channel: 1
+
+light:
+  - platform: monochromatic
+    output: my_gp8403_1_output_1
+    name: "${friendly_name} Dimmable Light 1"
+    gamma_correct: 0
+  - platform: monochromatic
+    output: my_gp8403_1_output_2
+    name: "${friendly_name} Dimmable Light 2"
+    gamma_correct: 0
