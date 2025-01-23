@@ -63,11 +63,11 @@ gp8403:
 # Individual outputs
 output:
   - platform: gp8403
-    id: my_gp8403_2_output_1
+    id: my_gp8403_1_output_1
     gp8403_id: my_gp8403_1
     channel: 0
   - platform: gp8403
-    id: my_gp8403_2_output_2
+    id: my_gp8403_1_output_2
     gp8403_id: my_gp8403_1
     channel: 1
 
