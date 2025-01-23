@@ -1,6 +1,6 @@
 substitutions:
   devicename: hamoduledac2chlight
-  friendly_name: HA Module DAC 2Ch
+  friendly_name: HA Module DAC 2Ch Light
   device_description: DAC 2Ch Light
 
 esphome:
