@@ -1,6 +1,6 @@
 # Wemos D1 Mini Shield - I2C Digital-to-Analog Converter - 2 Channel 0-10V Output
 
-<img src="images/top_01.jpg" width="256"/> <img src="images/side_01.jpg" width="256"> 
+<img src="images/top_01.jpg" width="256"/> <img src="images/side_01.jpg" width="256"> <a href="https://www.tindie.com/products/nilsrodday/wemos-d1-mini-dac-i2c-shield-2-channel-0-10v-out/"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-larges.png" alt="I sell on Tindie" width="200" height="104"></a>
 
 This repository contains the sample YAML file to use with the "Wemos D1 Mini Shield - I2C Digital-to-Analog Converter - 2 Channel 0-10V Output" shield. 
 
